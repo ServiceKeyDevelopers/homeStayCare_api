@@ -19,6 +19,7 @@ return [
             'sliders'         => 'c,r,u,d',
             'teams'           => 'c,r,u,d',
             'services'        => 'c,r,u,d',
+            'statuses'        => 'c,r,u,d',
             'social-contacts' => 'c,r,u,d',
             'categories'      => 'c,r,u,d',
             'tags'            => 'c,r,u,d',

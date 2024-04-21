@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\StatusController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\BlogPostController;
@@ -48,6 +49,13 @@ Route::middleware("auth:sanctum")->group(function() {
     Route::get('tags/{id}',    [TagController::class, 'show']);
     Route::put('tags/{id}',    [TagController::class, 'update']);
     Route::delete('tags/{id}', [TagController::class, 'delete']);
+
+    // Status route
+    Route::get('statuses', [StatusController::class, 'index']);
+    Route::post('statuses', [StatusController::class, 'store']);
+    Route::get('statuses/{id}', [StatusController::class, 'show']);
+    Route::put('statuses/{id}', [StatusController::class, 'update']);
+    Route::delete('statuses/{id}', [StatusController::class, 'destroy']);
 
     // Blog post route
     Route::get('blog-posts',         [BlogPostController::class, 'index']);
