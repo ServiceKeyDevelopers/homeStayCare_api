@@ -42,7 +42,6 @@ class BookingServiceRepository
 
         try {
             DB::beginTransaction();
-info("ok");
             $booking = new BookingService();
 
             $booking->name       = $name;
