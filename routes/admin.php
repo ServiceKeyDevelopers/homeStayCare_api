@@ -3,21 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AuthController;
-use App\Http\Controllers\Admin\TeamController;
-use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\CityController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\StatusController;
-use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\SocialContactController;
+use App\Http\Controllers\Admin\BookingServiceController;
 
 Route::get("/clear", function () {
     Artisan::call("optimize:clear");
@@ -51,11 +52,18 @@ Route::middleware("auth:sanctum")->group(function() {
     Route::delete('tags/{id}', [TagController::class, 'delete']);
 
     // Status route
-    Route::get('statuses', [StatusController::class, 'index']);
-    Route::post('statuses', [StatusController::class, 'store']);
-    Route::get('statuses/{id}', [StatusController::class, 'show']);
-    Route::put('statuses/{id}', [StatusController::class, 'update']);
+    Route::get('statuses',         [StatusController::class, 'index']);
+    Route::post('statuses',        [StatusController::class, 'store']);
+    Route::get('statuses/{id}',    [StatusController::class, 'show']);
+    Route::put('statuses/{id}',    [StatusController::class, 'update']);
     Route::delete('statuses/{id}', [StatusController::class, 'destroy']);
+
+    // Bookings Service route
+    Route::get('booking-services',         [BookingServiceController::class, 'index']);
+    Route::post('booking-services',        [BookingServiceController::class, 'store']);
+    Route::get('booking-services/{id}',    [BookingServiceController::class, 'show']);
+    Route::put('booking-services/{id}',    [BookingServiceController::class, 'update']);
+    Route::delete('booking-services/{id}', [BookingServiceController::class, 'delete']);
 
     // Blog post route
     Route::get('blog-posts',         [BlogPostController::class, 'index']);

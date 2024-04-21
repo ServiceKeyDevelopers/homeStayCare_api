@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\Front\ApplicationController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Front\TeamController;
 use App\Http\Controllers\Front\AuthController;
+use App\Http\Controllers\Front\CityController;
+use App\Http\Controllers\Front\TeamController;
 use App\Http\Controllers\Front\SliderController;
 use App\Http\Controllers\Front\CountryController;
 use App\Http\Controllers\Front\ServiceController;
 use App\Http\Controllers\Front\BlogPostController;
-use App\Http\Controllers\Front\CityController;
+use App\Http\Controllers\Front\ApplicationController;
 use App\Http\Controllers\Front\DesignationController;
 use App\Http\Controllers\Front\SocialContactController;
+use App\Http\Controllers\Front\BookingServiceController;
 
 // Auth route
 Route::post('registration', [AuthController::class, 'registration']);
@@ -46,8 +47,12 @@ Route::get('cities', [CityController::class, 'index']);
 // Application route
 Route::post('applications', [ApplicationController::class, 'store']);
 
+// Booking Service route
+Route::post('booking-services', [BookingServiceController::class, 'store']);
+
 Route::middleware("auth:sanctum")->group(function () {
 
     // Logout route
     Route::post('logout', [AuthController::class, 'logout']);
 });
+
