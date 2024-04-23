@@ -15,14 +15,15 @@ class StatusResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            "id"         => $this->id,
-            "name"       => $this->name,
-            "bg_color"   => $this->bg_color,
-            "text_color" => $this->text_color,
-            "slug"       => $this->slug,
-            "status"     => $this->status,
-            "created_at" => $this->created_at,
-            "created_by" => $this->whenLoaded('createdBy')
+            "id"                => $this->id,
+            "name"              => $this->name,
+            "bg_color"          => $this->bg_color,
+            "text_color"        => $this->text_color,
+            "slug"              => $this->slug,
+            "status"            => $this->status,
+            "current_status_id" => $this->current_status_id,
+            "created_at"        => $this->created_at,
+            "created_by"        => $this->whenLoaded('createdBy')
         ];
     }
 }

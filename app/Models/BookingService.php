@@ -16,4 +16,10 @@ class BookingService extends Model
     {
         return $this->belongsTo(User::class, "created_by", "id");
     }
+
+    public function currentStatus(): BelongsTo
+    {
+        return $this->belongsTo(Status::class, 'current_status_id', 'id');
+    }
+
 }

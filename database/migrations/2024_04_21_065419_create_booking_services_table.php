@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('booking_services', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('current_status_id')->nullable()->constrained('statuses')->onUpdate('cascade');
             $table->string('name', 100)->nullable();
             $table->string('email', 100)->nullable();
             $table->string('Post_code', 100)->nullable();

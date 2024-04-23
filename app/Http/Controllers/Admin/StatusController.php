@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use Exception;
 use Illuminate\Http\Request;
 use App\Classes\BaseController;
-use App\Exceptions\CustomException;
 use Illuminate\Support\Facades\Log;
 use App\Repositories\StatusRepository;
 use App\Http\Resources\Admin\StatusResource;

@@ -34,21 +34,23 @@ class BookingServiceRepository
 
     public function store($request)
     {
-        $name       = $request->input('name', null);
-        $email      = $request->input('email', null);
-        $Post_code  = $request->input('Post_code', null);
-        $Service_id = $request->input('Service_id', null);
-        $status     = $request->input('status', StatusEnum::ACTIVE);
+        $name              = $request->input('name', null);
+        $current_status_id = $request->input('current_status_id', null);
+        $email             = $request->input('email', null);
+        $Post_code         = $request->input('Post_code', null);
+        $Service_id        = $request->input('Service_id', null);
+        $status            = $request->input('status', StatusEnum::ACTIVE);
 
         try {
             DB::beginTransaction();
             $booking = new BookingService();
 
-            $booking->name       = $name;
-            $booking->email      = $email;
-            $booking->Post_code  = $Post_code;
-            $booking->Service_id = $Service_id;
-            $booking->status     = $status;
+            $booking->name              = $name;
+            $booking->current_status_id = $current_status_id;
+            $booking->email             = $email;
+            $booking->Post_code         = $Post_code;
+            $booking->Service_id        = $Service_id;
+            $booking->status            = $status;
             $booking->save();
 
             DB::commit();
@@ -65,8 +67,8 @@ class BookingServiceRepository
     public function show($id)
     {
         try {
-            $booking = BookingService::with(["createdBy:id,name"])->find($id);
-
+            $booking = BookingService::with(['createdBy:id,name','currentStatus:id,name,bg_color'])->find($id);
+info('albab vai');
             return $booking;
         } catch (\Exception $exception) {
             Log::error($exception->getMessage());
