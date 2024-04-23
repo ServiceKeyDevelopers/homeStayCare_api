@@ -32,11 +32,11 @@ class StatusRepository
 
             $status = new Status();
 
-            $status->name = $request->name;
-            $status->slug = $request->name;
-            $status->bg_color = $request->bg_color;
+            $status->name       = $request->name;
+            $status->slug       = $request->name;
+            $status->bg_color   = $request->bg_color;
             $status->text_color = $request->text_color;
-            $status->status = $request->status;
+            $status->status     = $request->status;
             $status->save();
 
             DB::commit();
