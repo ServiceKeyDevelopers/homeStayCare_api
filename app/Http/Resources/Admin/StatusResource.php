@@ -17,6 +17,8 @@ class StatusResource extends JsonResource
         return [
             "id"         => $this->id,
             "name"       => $this->name,
+            "bg_color"   => $this->bg_color,
+            "text_color" => $this->text_color,
             "slug"       => $this->slug,
             "status"     => $this->status,
             "created_at" => $this->created_at,
