@@ -68,7 +68,6 @@ class BookingServiceRepository
     {
         try {
             $booking = BookingService::with(['createdBy:id,name','currentStatus:id,name,bg_color'])->find($id);
-info('albab vai');
             return $booking;
         } catch (\Exception $exception) {
             Log::error($exception->getMessage());
