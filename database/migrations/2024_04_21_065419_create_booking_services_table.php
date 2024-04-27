@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('booking_services', function (Blueprint $table) {
             $table->id();
             $table->foreignId('current_status_id')->nullable()->constrained('statuses')->onUpdate('cascade');
+            $table->foreignId('service_id')->nullable()->constrained('services')->onUpdate('cascade');
             $table->string('name', 100)->nullable();
             $table->string('email', 100)->nullable();
-            $table->string('Post_code', 100)->nullable();
-            $table->string('Service_id', 100)->nullable();
-            $table->string('status')->default('active');
+            $table->string('post_code', 100)->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();
             $table->unsignedBigInteger('deleted_by')->nullable();

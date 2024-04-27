@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class BookingService extends Model
 {
     use HasFactory;
+
     protected $guarded = ["id"];
-    protected $table = "booking_services";
 
     public function createdBy(): BelongsTo
     {
@@ -20,6 +20,11 @@ class BookingService extends Model
     public function currentStatus(): BelongsTo
     {
         return $this->belongsTo(Status::class, 'current_status_id', 'id');
+    }
+
+    public function service(): BelongsTo
+    {
+        return $this->belongsTo(Service::class, 'service_id', 'id');
     }
 
 }

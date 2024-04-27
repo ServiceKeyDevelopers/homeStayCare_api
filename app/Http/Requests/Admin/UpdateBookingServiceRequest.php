@@ -26,7 +26,7 @@ class UpdateBookingServiceRequest extends FormRequest
         return [
             "name"       => ["required"],
             "email"      => ["required"],
-            "Service_id" => ["required"]
+            "service_id" => ["required"]
         ];
     }
 }

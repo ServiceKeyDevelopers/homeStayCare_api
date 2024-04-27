@@ -23,7 +23,7 @@ class StoreBookingServiceRequest extends FormRequest
     {
         return [
             "name"       => ["required"],
-            "Service_id" => ["required"]
+            "service_id" => ["required"]
         ];
     }
 }
